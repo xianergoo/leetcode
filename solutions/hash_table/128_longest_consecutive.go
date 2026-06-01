@@ -23,24 +23,21 @@ package hash_table
 // 空间复杂度: O(n)
 
 func longestConsecutive(nums []int) int {
-	ans := 0
-	mp := make(map[int]bool)
+	m := make(map[int]bool, len(nums))
 	for _, v := range nums {
-		mp[v] = true
+		m[v] = true
 	}
-	for _, v := range nums {
-		tmp := 0
-		num := v - 1
-		if !mp[num]{
-			for mp[num + 1] {
-				tmp += 1
-				num += 1
+	longest := 0
+	for v := range m {
+		if !m[v-1] {
+			cur := v
+			for m[cur] {
+				cur++
 			}
-			if tmp > ans {
-				ans = tmp
+			if cur-v > longest {
+				longest = cur - v
 			}
 		}
 	}
-
-	return ans
+	return longest
 }
