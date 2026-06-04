@@ -2,6 +2,25 @@
 
 > 每次对话中沉淀的可复用模式、教学偏好、约定。
 
+## Git 操作规则
+
+**所有Git操作都必须事先获得用户明确同意**，包括但不限于：
+
+- 提交更改 (`git commit`)
+- 推送到远程 (`git push`)
+- 分支创建、合并 (`git branch`, `git merge`, `git rebase`)
+- 任何破坏性操作 (`git reset`, `git checkout -f`)
+
+**可自动执行的 Git 操作（无需确认）：**
+- 只读操作 (`git status`, `git log`, `git diff`)
+
+### 流程
+
+1. 变更就绪后，展示 diff/staged 内容
+2. 说明 commit message 建议
+3. **等待用户确认**: "是否同意这次 commit/push？"
+4. 只有在明确同意后才执行
+
 ## 交互节奏
 
 1. **先对话探索，再写代码** — 不要一上来就丢代码，先讨论思路
